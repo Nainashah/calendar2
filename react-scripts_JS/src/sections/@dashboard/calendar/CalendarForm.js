@@ -3,11 +3,23 @@ import * as Yup from 'yup';
 import merge from 'lodash/merge';
 import { isBefore } from 'date-fns';
 import { useSnackbar } from 'notistack';
+import Faker from '@faker-js/faker';
 // form
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 // @mui
-import { Box, Stack, Button, Tooltip, TextField, IconButton, DialogActions } from '@mui/material';
+import {
+  Box,
+  Stack,
+  Button,
+  Tooltip,
+  TextField,
+  IconButton,
+  DialogActions,
+  Avatar,
+  Typography,
+  Checkbox,
+} from '@mui/material';
 import { LoadingButton, MobileDateTimePicker } from '@mui/lab';
 // redux
 import { useDispatch } from '../../../redux/store';
@@ -118,55 +130,99 @@ export default function CalendarForm({ event, range, onCancel }) {
 
   const isDateError = isBefore(new Date(values.end), new Date(values.start));
 
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={3} sx={{ p: 3 }}>
-        <RHFTextField name="title" label="Title" />
-
-        <RHFTextField name="description" label="Description" multiline rows={4} />
-
-        <RHFSwitch name="allDay" label="All day" />
-
-        <Controller
-          name="start"
-          control={control}
-          render={({ field }) => (
-            <MobileDateTimePicker
-              {...field}
-              label="Start date"
-              inputFormat="dd/MM/yyyy hh:mm a"
-              renderInput={(params) => <TextField {...params} fullWidth />}
-            />
-          )}
-        />
-
-        <Controller
-          name="end"
-          control={control}
-          render={({ field }) => (
-            <MobileDateTimePicker
-              {...field}
-              label="End date"
-              inputFormat="dd/MM/yyyy hh:mm a"
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  fullWidth
-                  error={!!isDateError}
-                  helperText={isDateError && 'End date must be later than start date'}
-                />
-              )}
-            />
-          )}
-        />
-
-        <Controller
-          name="textColor"
-          control={control}
-          render={({ field }) => (
-            <ColorSinglePicker value={field.value} onChange={field.onChange} colors={COLOR_OPTIONS} />
-          )}
-        />
+        <Stack direction={'row'} alignItems={'center'} spacing={2}>
+          <Checkbox {...label} defaultChecked sx={{ width: 'max-content' }} />
+          <Avatar alt={Faker.name.findName()} src={Faker.image.avatar()} />
+          <Stack direction={'column'} spacing={1}>
+            <Typography variant="subtitle2">{Faker.name.findName()}</Typography>
+            <Typography variant="caption">{"Project Manager"}</Typography>
+          </Stack>
+        </Stack>
+      </Stack>
+      <Stack spacing={3} sx={{ p: 3 }}>
+        <Stack direction={'row'} alignItems={'center'} spacing={2}>
+          <Checkbox {...label} defaultChecked sx={{ width: 'max-content' }} />
+          <Avatar alt={Faker.name.findName()} src={Faker.image.avatar()} />
+          <Stack direction={'column'} spacing={1}>
+            <Typography variant="subtitle2">{Faker.name.findName()}</Typography>
+            <Typography variant="caption">{"Project Manager"}</Typography>
+          </Stack>
+        </Stack>
+      </Stack>
+      <Stack spacing={3} sx={{ p: 3 }}>
+        <Stack direction={'row'} alignItems={'center'} spacing={2}>
+          <Checkbox {...label} defaultChecked sx={{ width: 'max-content' }} />
+          <Avatar alt={Faker.name.findName()} src={Faker.image.avatar()} />
+          <Stack direction={'column'} spacing={1}>
+            <Typography variant="subtitle2">{Faker.name.findName()}</Typography>
+            <Typography variant="caption">{"Project Manager"}</Typography>
+          </Stack>
+        </Stack>
+      </Stack>
+      <Stack spacing={3} sx={{ p: 3 }}>
+        <Stack direction={'row'} alignItems={'center'} spacing={2}>
+          <Checkbox {...label} defaultChecked sx={{ width: 'max-content' }} />
+          <Avatar alt={Faker.name.findName()} src={Faker.image.avatar()} />
+          <Stack direction={'column'} spacing={1}>
+            <Typography variant="subtitle2">{Faker.name.findName()}</Typography>
+            <Typography variant="caption">{"Project Manager"}</Typography>
+          </Stack>
+        </Stack>
+      </Stack>
+      <Stack spacing={3} sx={{ p: 3 }}>
+        <Stack direction={'row'} alignItems={'center'} spacing={2}>
+          <Checkbox {...label} defaultChecked sx={{ width: 'max-content' }} />
+          <Avatar alt={Faker.name.findName()} src={Faker.image.avatar()} />
+          <Stack direction={'column'} spacing={1}>
+            <Typography variant="subtitle2">{Faker.name.findName()}</Typography>
+            <Typography variant="caption">{"Project Manager"}</Typography>
+          </Stack>
+        </Stack>
+      </Stack>
+      <Stack spacing={3} sx={{ p: 3 }}>
+        <Stack direction={'row'} alignItems={'center'} spacing={2}>
+          <Checkbox {...label} defaultChecked sx={{ width: 'max-content' }} />
+          <Avatar alt={Faker.name.findName()} src={Faker.image.avatar()} />
+          <Stack direction={'column'} spacing={1}>
+            <Typography variant="subtitle2">{Faker.name.findName()}</Typography>
+            <Typography variant="caption">{"Project Manager"}</Typography>
+          </Stack>
+        </Stack>
+      </Stack>
+      <Stack spacing={3} sx={{ p: 3 }}>
+        <Stack direction={'row'} alignItems={'center'} spacing={2}>
+          <Checkbox {...label} defaultChecked sx={{ width: 'max-content' }} />
+          <Avatar alt={Faker.name.findName()} src={Faker.image.avatar()} />
+          <Stack direction={'column'} spacing={1}>
+            <Typography variant="subtitle2">{Faker.name.findName()}</Typography>
+            <Typography variant="caption">{"Project Manager"}</Typography>
+          </Stack>
+        </Stack>
+      </Stack>
+      <Stack spacing={3} sx={{ p: 3 }}>
+        <Stack direction={'row'} alignItems={'center'} spacing={2}>
+          <Checkbox {...label} defaultChecked sx={{ width: 'max-content' }} />
+          <Avatar alt={Faker.name.findName()} src={Faker.image.avatar()} />
+          <Stack direction={'column'} spacing={1}>
+            <Typography variant="subtitle2">{Faker.name.findName()}</Typography>
+            <Typography variant="caption">{"Project Manager"}</Typography>
+          </Stack>
+        </Stack>
+      </Stack>
+      <Stack spacing={3} sx={{ p: 3 }}>
+        <Stack direction={'row'} alignItems={'center'} spacing={2}>
+          <Checkbox {...label} defaultChecked sx={{ width: 'max-content' }} />
+          <Avatar alt={Faker.name.findName()} src={Faker.image.avatar()} />
+          <Stack direction={'column'} spacing={1}>
+            <Typography variant="subtitle2">{Faker.name.findName()}</Typography>
+            <Typography variant="caption">{"Project Manager"}</Typography>
+          </Stack>
+        </Stack>
       </Stack>
 
       <DialogActions>

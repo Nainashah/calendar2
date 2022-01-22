@@ -7,7 +7,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 //
 import { useState, useRef, useEffect } from 'react';
 // @mui
-import { Card, Button, Container, DialogTitle } from '@mui/material';
+import { Card, Button, Container, DialogTitle, Stack } from '@mui/material';
 // redux
 import { useDispatch, useSelector } from '../../redux/store';
 import { getEvents, openModal, closeModal, updateEvent, selectEvent, selectRange } from '../../redux/slices/calendar';
@@ -153,20 +153,12 @@ export default function Calendar() {
   return (
     <Page title="Calendar">
       <Container maxWidth={themeStretch ? false : 'xl'}>
-        <HeaderBreadcrumbs
-          heading="Calendar"
-          links={[{ name: 'Dashboard', href: PATH_DASHBOARD.root }, { name: 'Calendar' }]}
-          moreLink="https://fullcalendar.io/docs/react"
-          action={
-            <Button
-              variant="contained"
-              startIcon={<Iconify icon={'eva:plus-fill'} width={20} height={20} />}
-              onClick={handleAddEvent}
-            >
-              New Event
-            </Button>
-          }
-        />
+        <Stack direction="row" alignItems="center" justifyContent="end" sx={{mb: 3}}>
+          {' '}
+          <Button variant="contained" className='mb-3' onClick={handleAddEvent}>
+            Manage attendance
+          </Button>
+        </Stack>
 
         <Card>
           <CalendarStyle>
@@ -204,7 +196,7 @@ export default function Calendar() {
         </Card>
 
         <DialogAnimate open={isOpenModal} onClose={handleCloseModal}>
-          <DialogTitle>{selectedEvent ? 'Edit Event' : 'Add Event'}</DialogTitle>
+          <DialogTitle>{'Manage attendance'}</DialogTitle>
 
           <CalendarForm event={selectedEvent || {}} range={selectedRange} onCancel={handleCloseModal} />
         </DialogAnimate>
